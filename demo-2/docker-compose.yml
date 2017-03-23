@@ -1,0 +1,13 @@
+version: "2"
+services:
+  server:
+    build: .
+    ports:
+      - "8888:3000"
+    depends_on:
+      - db
+    command: bash -c 'sleep 2 && npm start'
+
+  db:
+    image: mongo
+    command: mongod --smallfiles
